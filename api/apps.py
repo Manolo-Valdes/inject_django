@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
-from api.apllication.Services.basic import GreetingsService
+from api.application.Services.basic import GreetingsService
 from domain.contracts.Basic import IGreetings
 from domain.services.di import DependencyManager
 
