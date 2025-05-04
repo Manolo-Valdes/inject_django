@@ -1,8 +1,6 @@
 from django.apps import AppConfig
 
-from api.application.Services.basic import GreetingsService
-from domain.contracts.Basic import IGreetings
-from domain.services.di import DependencyManager
+from api.application.injector_config import register_services
 
 
 class ApiConfig(AppConfig):
@@ -10,5 +8,4 @@ class ApiConfig(AppConfig):
     name = 'api'
 
     def ready(self):
-        print("Registering api dependency injection")
-        DependencyManager.add_provider(IGreetings, lambda: GreetingsService())
+        register_services()

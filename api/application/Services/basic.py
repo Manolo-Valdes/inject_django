@@ -5,10 +5,9 @@ from domain.contracts.Basic import IGreetings, ILogger
 
 class GreetingsService(IGreetings):
 
-    @inject.autoparams
-    def __init__(self, logger: ILogger):
+    def __init__(self):
         super().__init__()
-        self.logger = logger
+        self.logger = inject.instance(ILogger)
 
     def hello(self, user: str) -> str:
         self.logger.log_information('Hello {}'.format(user))
