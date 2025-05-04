@@ -1,5 +1,6 @@
 from django.apps import AppConfig
 
+from domain.services import register_domain_services
 from domain.services.di import DependencyManager
 
 
@@ -8,5 +9,6 @@ class ApiConfig(AppConfig):
     name = 'app_config'
 
     def ready(self):
-        print("Ready")
+        register_domain_services()
         DependencyManager.configure()
+        print('app_config ready!')

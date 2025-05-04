@@ -10,5 +10,5 @@ class ApiConfig(AppConfig):
     name = 'api'
 
     def ready(self):
-        print("Registering api di")
-        DependencyManager.register(IGreetings, GreetingsService())
+        print("Registering api dependency injection")
+        DependencyManager.add_provider(IGreetings, lambda: GreetingsService())
